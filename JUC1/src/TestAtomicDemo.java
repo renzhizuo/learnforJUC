@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 		  i = i++; //10
  * 
  * 		  int temp = i;
- * 		  i = i + 1;
+ * 		  i = i + 1;//? temp=temp+1
  * 		  i = temp;
  * 
  * 二、原子变量：在 java.util.concurrent.atomic 包下提供了一些原子变量。

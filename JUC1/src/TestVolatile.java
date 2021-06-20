@@ -9,9 +9,12 @@
 public class TestVolatile {
 	
 	public static void main(String[] args) {
+		//共享的,可执行task
 		ThreadDemo td = new ThreadDemo();
+		//子线程-执行task
 		new Thread(td).start();
-		
+
+		//主线程-依赖共享task的flag
 		while(true){
 			if(td.isFlag()){
 				System.out.println("!!!!!!!!!!!!!!!");
@@ -25,7 +28,8 @@ public class TestVolatile {
 
 class ThreadDemo implements Runnable {
 
-	private volatile boolean flag = false;
+//	private boolean flag = false; //主线程while(true)不能感知到flag已被修改
+	private volatile boolean flag = false;//每次get从主内存读取，可以获取到最新的值
 
 	@Override
 	public void run() {
@@ -36,7 +40,7 @@ class ThreadDemo implements Runnable {
 		}
 
 		flag = true;
-		
+
 		System.out.println("flag=" + isFlag());
 
 	}
