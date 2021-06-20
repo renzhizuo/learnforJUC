@@ -50,7 +50,7 @@ public class TestABCAlternate {
 }
 
 class AlternateDemo{
-	
+	//共享变量
 	private int number = 1; //当前正在执行线程的标记
 	
 	private Lock lock = new ReentrantLock();
@@ -95,7 +95,7 @@ class AlternateDemo{
 			}
 			
 			//2. 打印
-			for (int i = 1; i <= 1; i++) {
+			for (int i = 1; i <= 2; i++) {
 				System.out.println(Thread.currentThread().getName() + "\t" + i + "\t" + totalLoop);
 			}
 			
@@ -119,7 +119,7 @@ class AlternateDemo{
 			}
 			
 			//2. 打印
-			for (int i = 1; i <= 1; i++) {
+			for (int i = 1; i <= 3; i++) {
 				System.out.println(Thread.currentThread().getName() + "\t" + i + "\t" + totalLoop);
 			}
 			

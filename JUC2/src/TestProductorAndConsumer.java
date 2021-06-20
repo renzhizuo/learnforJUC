@@ -1,5 +1,5 @@
 /*
- * 生产者和消费者案例
+ * 生产者和消费者案例 synchronized
  */
 public class TestProductorAndConsumer {
 
@@ -18,14 +18,15 @@ public class TestProductorAndConsumer {
 	
 }
 
-/*//店员
+/*
+//店员
 class Clerk{
 	private int product = 0;
 	
 	//进货
 	public synchronized void get(){//循环次数：0
-		while(product >= 1){//为了避免虚假唤醒问题，应该总是使用在循环中
-			System.out.println("产品已满！");
+		while(product >= 5){//为了避免虚假唤醒问题，应该总是使用在循环中
+			System.out.println("产品已满！,>=5");
 			
 			try {
 				this.wait();
@@ -65,10 +66,12 @@ class Productor implements Runnable{
 	@Override
 	public void run() {
 		for (int i = 0; i < 20; i++) {
-			try {
+			*/
+/*try {
 				Thread.sleep(200);
 			} catch (InterruptedException e) {
-			}
+			}*//*
+
 			
 			clerk.get();
 		}
@@ -86,6 +89,10 @@ class Consumer implements Runnable{
 	@Override
 	public void run() {
 		for (int i = 0; i < 20; i++) {
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+			}
 			clerk.sale();
 		}
 	}

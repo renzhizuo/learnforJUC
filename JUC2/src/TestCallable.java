@@ -20,6 +20,7 @@ public class TestCallable {
 		
 		//2.接收线程运算后的结果
 		try {
+			//如有必要，等待计算完成，然后检索其结果。
 			Integer sum = result.get();  //FutureTask 可用于 闭锁
 			System.out.println(sum);
 			System.out.println("------------------------------------");
